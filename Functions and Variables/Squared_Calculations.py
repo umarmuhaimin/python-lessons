@@ -65,6 +65,7 @@ main()
 # When Python reads your file, it defines all functions first. By calling main() at the end, you tell Python to actually execute the code inside main. Without this call, nothing would happen—the functions would just be defined but never used.
 # This is a common practice to organize code and make it clear where the program starts.
 # Without main(), this program of codes will not run perfectly.
+# main() at the end of the code is basically a prompt to call the function that you have made in order run it successfully.
 
 
 # To create a function in Python :

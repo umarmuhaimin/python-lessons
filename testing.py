@@ -1,5 +1,6 @@
-# Method 2 (F-string method)
-x = float(input("What's x? "))
-y = float(input("What's y? "))
-z = x / y
-print(f"{z:.2f}")
+def main():
+    x = int(input("What's x? "))
+    print("x to the power of n is", power(x))
+def power(n):
+    return pow(n, 3)
+main()

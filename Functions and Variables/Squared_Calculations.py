@@ -61,6 +61,11 @@ def power(n, m):    # if n = base and m = power, then we set the program to retu
     return n ** m
 main()
 
+# We put main() at the end of the code to tell Python to start running the program from the main function ; start running the program from the beginning of the code " def main(): function".
+# When Python reads your file, it defines all functions first. By calling main() at the end, you tell Python to actually execute the code inside main. Without this call, nothing would happen—the functions would just be defined but never used.
+# This is a common practice to organize code and make it clear where the program starts.
+# Without main(), this program of codes will not run perfectly.
+
 
 # To create a function in Python :
 

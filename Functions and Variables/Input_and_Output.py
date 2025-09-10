@@ -262,6 +262,113 @@ main()
 # 3. hello(name) -> prints "hello, [user's name]". (name) argument is passed to (to) parameter in the hello function. Therefore, it will print "hello, [user's name]".
 
 
+### String Methods : Structuring lists of data. "[]" is a list ###
+
+# Option 1 :
+
+SHOWS = [ 
+    " Avatar : the last airbender", 
+    "Ben 10" ,
+    "Arthur" ,
+    "Spongebob Squarepants" ,
+    "Phineas and ferb" ,
+    "Kim possible" ,
+    "Jimmy neutron" ,
+    " Marvel : The avengers"
+]
+
+def main():
+    for show in SHOWS:
+        print(show)
+
+main()
+
+
+# Option 2 :
+
+SHOWS = [ 
+    " Avatar : the last airbender", 
+    "Ben 10" ,
+    "Arthur" ,
+    "Spongebob Squarepants" ,
+    "Phineas and ferb" ,
+    "Kim possible" ,
+    "Jimmy neutron" ,
+    " Marvel : The avengers"
+]
+
+def main():
+    for show in SHOWS:
+        print(show.strip().title())
+
+main()
+
+
+# Option 3 using .append() with lists :
+
+SHOWS = [ 
+    " Avatar : the last airbender", 
+    "Ben 10" ,
+    "Arthur" ,
+    "Spongebob Squarepants" ,
+    "Phineas and ferb" ,
+    "Kim possible" ,
+    "Jimmy neutron" ,
+    " Marvel : The avengers"
+]
+
+def main():
+    cleaned_shows = []
+    for show in SHOWS:
+        cleaned_shows.append(show.strip().title())
+    print(cleaned_shows)
+       
+
+main()
+
+### In Python, .append() is a list method used to add a single item to the end of an existing list. This method modifies the list in place and does not return a new list ###
+# .append() is basically a list method to add a single item to the end of an existing list.
+# For example :
+
+# Create a list
+my_list = [1, 2, 3]
+
+# Append a single item to the list
+my_list.append(4)
+
+# Print the updated list
+print(my_list)
+
+# Output : [1, 2, 3, 4]
+
+
+# Option 4 using .join() with lists :
+
+SHOWS = [ 
+    " Avatar : the last airbender", 
+    "Ben 10" ,
+    "Arthur" ,
+    "Spongebob Squarepants" ,
+    "Phineas and ferb" ,
+    "Kim possible" ,
+    "Jimmy neutron" ,
+    " Marvel : The avengers"
+]
+
+def main():
+    cleaned_shows = []
+    for show in SHOWS:
+        cleaned_shows.append(show.strip().title()) 
+
+    print(', '.join(cleaned_shows))
+       
+
+main()
+
+# .join() method in Python is a string method used to concatenate elements of an iterable (like a list, tuple, or set) into a single string. It uses the string on which it is called as a separator between the elements. 
+# . join() is a method in python that concatenate / join elements of list, tuple or set together to form a single line of strings.
+
+
 
 
 

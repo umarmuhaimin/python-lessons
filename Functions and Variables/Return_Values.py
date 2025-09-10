@@ -111,5 +111,41 @@ print(greeting + " David")
 
 
 # Side Effects :
-# - Produces some change immediately.
+# - A side effect in Python is an immediate change that prevents new code from being displayed in the output.
+# - In Python, side effects occur when a change happens right away, causing new code not to appear in the output.
 # - Uses print function in this method.
+
+
+# Intermediate example of Side Effects :
+emoticon = "^.^"
+
+def main():
+    say("Is anyone there? ")
+    emoticon = ":D" # When running the program, this emoticon will not be displayed because of side effects.
+    say("Oh, hi!")
+
+def say(phrase):
+    print(phrase + " " + emoticon)
+
+main()
+
+# In order to make changes on the output inside or outside of a function without altering any line of codes, we can use global variable.
+# Global variables = variable that is defined outside of any function or class, typically at the top level of a script or module. This means it has a "global scope," making it accessible from anywhere within that module, including inside functions. 
+
+# Therefore, in order to overcome Side Effects, we can use global variable.
+emoticon = "^.^"
+
+def main():
+    global emoticon # global variable: Any changes can be made at any time present or later on while coding.
+    say("Is anyone there? ")
+    emoticon = ":D"
+    say("Oh, hi!")
+
+
+def say(phrase):
+    print(phrase + " " + emoticon)  # " " indicates space in between phrase and emoticon.
+main() 
+
+# phrase = say("Is anyone there? ") and say("Oh, hi!")
+# emoticon =  "^.^" , if global variable is added to emoticon then the second emoticon = ":D" 
+# If there is no global emoticon, then the ouput emoticon will output same "^.^" emoticon.

@@ -37,6 +37,7 @@ match name:
         print("Who?")
 
 # The symbol "|" represents if, elif and else statement.
+# The symbol "..." means we'll work on this later.
 
 
 ### We use conditional statements to verify whether the statement matches the criteria of the functions ###

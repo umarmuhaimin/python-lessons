@@ -107,6 +107,46 @@ print(students["Draco"])
 # → Gryffindor
 # → Slytherin
 
+# 👉 forloops_dict :
+students = {
+    "Hermione": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin"
+}
+for student in students:
+    print(student, students[student], sep=", ")
+# Output :
+# → Hermione, Gryffindor
+# → Harry, Gryffindor
+# → Ron, Gryffindor
+# → Draco, Slytherin
+
+# 👉 List of Dictionaries : Storing Multiple Dictionaries in a List / Storing multiple pairs of key_and_value in a list.
+# a dictionary is when you have a single set of {key: value}
+# [1] dict means 1 set of {key: value} → {key: value}
+# [2] dict means 2 set of {key: value} → {key: value}, {key: value}
+# [3] dict means 3 set of {key: value} → {key: value}, {key: value}, {key: value}
+# In short, if you have multiple dictionaries → USE List of dictionaries. List is because you have "[]".
+students = [
+    {"name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
+{"name": "Harry", "house": "Gryffindor", "patronus": "Stag"},
+{"name": "Ron", "house": "Gryffindor", "patronus": "Jack Russel terrier"},
+{"name": "Draco", "house": "Slytherin", "patronus": None}
+]
+
+for student in students:
+    print(student["name"], student["house"], student["patronus"], sep=", ")
+# Output :
+# → Hermione, Gryffindor, Otter
+# → Harry, Gryffindor, Stag
+# → Ron, Gryffindor, Jack Russel terrier
+# → Draco, Slytherin, None
+
+
+
+
+
 
 
 

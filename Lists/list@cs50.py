@@ -60,6 +60,25 @@ for i in range(len(students)):
 # So every loop, i changes → students[i] prints one single item.
 # Since you have a loop variable "i" from "for i in range()" → order/arrangement matters.
 
+# 🔹 Printing List with Position Numbers 
+students = ["Hermione", "Harry", "Ron"]
+for i in range(len(students)):
+    print(i, students[i])
+# Output :
+# → 0 Hermione
+# → 1 Harry
+# → 2 Ron
+
+# 🔹 Printing List with Position Numbers starting from "1" instead of "0"
+students = ["Hermione", "Harry", "Ron"]
+for i in range(len(students)):
+    print(i + 1, students[i])
+# Output :
+# → 1 Hermione  👉 i = 0 + 1 → 1
+# → 2 Harry     👉 i = 1 + 1 → 2
+# → 3 Ron       👉 i = 2 + 1 → 3
+
+
 
 
 

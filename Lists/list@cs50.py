@@ -78,6 +78,37 @@ for i in range(len(students)):
 # → 2 Harry     👉 i = 1 + 1 → 2
 # → 3 Ron       👉 i = 2 + 1 → 3
 
+#########################################################################################################
+
+### Dictionaries (dict) ###
+ 
+# 👉 A collection of key-value pairs, written with { }.
+# 👉 Syntax: {key: value}
+# 👉 Keys are unique, values can be repeated.
+
+# 🔹 Accessing Dictionary Values for each respective keys.
+# → Print the name of houses for each respective person 
+
+# 👉 General method for dict :
+students = {
+    "Hermione": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin"
+}
+
+print(students["Hermione"])
+print(students["Harry"])
+print(students["Ron"])
+print(students["Draco"]) 
+# Output :
+# → Gryffindor
+# → Gryffindor
+# → Gryffindor
+# → Slytherin
+
+
+
 
 
 

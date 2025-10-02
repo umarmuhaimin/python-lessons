@@ -1,9 +1,9 @@
 def main():
-    moisture = sample()
+    moisture = input("sample()") # Actually, it should only be moisture = sample(), but since we don't have the data ; just ignore this. It's just an add up to remove syntax problems.
     print(f"Moisture is {moisture}%")
 
     while moisture > 20:
-        moisture = sample()
+        moisture = input("sample()") #  Actually, it should only be moisture = sample(), but since we don't have the data ; just ignore this. It's just an add up to remove syntax problems.
         print(f"Moisture is {moisture}%")
 
     print("It's time to water")
@@ -24,12 +24,12 @@ main()
 #########################################################################################################################
 
 def main():
-    moisture = sample()
+    moisture = input("sample()") # Actually, it should only be moisture = sample(), but since we don't have the data ; just ignore this. It's just an add up to remove syntax problems.
     days = 0
     print(f"Day {days} : Moisture is {moisture}%")
 
     while moisture > 20:
-        moisture = sample()
+        moisture = input("sample()") #  Actually, it should only be moisture = sample(), but since we don't have the data ; just ignore this. It's just an add up to remove syntax problems.
         days += 1
         print(f"Moisture is {moisture}%")
 

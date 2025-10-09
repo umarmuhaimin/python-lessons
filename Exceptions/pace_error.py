@@ -1,4 +1,4 @@
-# 🔹 Error : Calculating pace for a marathon in minutes per mile. In the case of minutes ≤ 0. Solving the problem using Exception handlings.
+# 🔹 Error : Calculating pace for a marathon in minutes per mile. In the case of minutes ≤ 0. We can solve the problem by raising an Exception handlings.
 
 def main():
     pace = get_pace(miles=26.2, minutes=0)

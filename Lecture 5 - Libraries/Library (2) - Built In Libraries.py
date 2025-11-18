@@ -2,7 +2,7 @@
 
 #################################################################################
 
-# 🔹 random library
+# 🔹 random Module / Library
 
 random
 
@@ -34,9 +34,24 @@ random.shuffle(cards)
 print(cards)
 # Output: Shuffles and prints the list of cards in random order.
 
+
+# Shuffles a list of cards and prints the shuffled list horizontally.
+import random
+cards = ["Jack", "Nolan", "Ava"]
+random.shuffle(cards)
+print(cards)
+
+
+# Shuffles a list of cards and prints them in random order item by item by line since arrangement matters.
+import random
+cards = ["Jack", "Nolan", "Ava"]
+random.shuffle(cards)
+for card in cards:
+    print(card)
+
 #################################################################################
 
-# 🔹 statistics library
+# 🔹 statistics Module / library
 
 statistics
 
@@ -66,3 +81,4 @@ print(statistics.mode([80, 90, 100, 90, 95]))
 # → Finds the most common value in the list.
 
 #################################################################################
+

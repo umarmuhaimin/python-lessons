@@ -6,7 +6,7 @@
 # → Python comes with many built-in libraries (standard library).
 # → You can also install third-party libraries using pip.
 
-# 👉 Example: The built-in library random in Python.
+# 👉 Example: The built-in module / library random in Python.
 
 import random
 
@@ -15,7 +15,7 @@ print(coin)
 
 #################################################################################
 
-# 2. Importing Libraries
+# 2. Importing Module / Libraries
 
 # 🔹 Import the entire module :
 import random

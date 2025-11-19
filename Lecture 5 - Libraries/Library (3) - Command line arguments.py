@@ -2,6 +2,7 @@
 
 # → Command-line arguments allow users to provide input to a program when executing it from the command line.
 # → In Python, the sys module provides access to command-line arguments via sys.argv.
+# → In conclusion, we use command-line arguments if we want to provide input to our program using the terminal when we run it.
 
 # → sys is the module and argv is the variable that holds the list of arguments.
 # → sys.argv is a list.

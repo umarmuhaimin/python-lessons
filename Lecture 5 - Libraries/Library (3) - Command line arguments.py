@@ -103,5 +103,7 @@ for arg in sys.argv[1:]:  # start from index 1 to skip the program name at index
 # If run as python3 testing.py, it prints "Too few arguments. Please provide your name as a command-line argument." and exits.
     
     
-    
+# ✅ Important note :
+# → Use sys.exit() to terminate the whole program if the user provides invalid input.
+# → Use break to exit only from loops.
     

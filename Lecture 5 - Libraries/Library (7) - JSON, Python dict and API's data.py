@@ -89,7 +89,7 @@
 # 👉 Example Python structure:
 
 data = {
-    "resultCount": 1,
+    "resultCount": 1, # The API's limit from the URL parameter. If limit=1, resultCount will be 1. if limit=50, resultCount will be 50.
     "results": [
         {
             "trackName": "Say It Ain't So",
@@ -139,3 +139,37 @@ for result in data["results"]:
 # → json.dumps(data, indent=2) makes it readable.
 # → You loop through data["results"] to print each song.
 # → Changing limit= in the URL changes how many results you get.
+
+
+# 🔹 Itunes API's project (Display the whole API's respsonse from the results lists which contain all data about the song) :
+
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit()
+
+response = requests.get("https://itunes.apple.com/search?entity=song&limit=5&term=weezer" + sys.argv[1])
+data = response.json()
+print(json.dumps(data, indent=2))
+
+
+# 🔹 Itunes API's project (Display only the trackName from the results lists) :
+
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit()
+
+response = requests.get("https://itunes.apple.com/search?entity=song&limit=50&term=" + sys.argv[1])
+data = response.json()
+
+# We only want to display the trackName from the results lists.
+for result in data["results"]: # result is a loop variable. data stores the whole API response which is basically the converted python dictionary from json format. data["results"] accesses the list of results from the API response.
+    print(result["trackName"])
+
+# Output: If run as python3 testing.py Weezer, it prints the track names of the songs by Weezer from the API response.
+

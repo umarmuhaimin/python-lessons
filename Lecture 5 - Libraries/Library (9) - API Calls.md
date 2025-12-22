@@ -34,8 +34,11 @@
 4. Making an API Request
 
 • Use requests.get() to send an HTTP GET request.
-• The base API URL:
+• The base API URL (The Place where information is available to access):
 → https://api.artic.edu/api/v1
+
+• To get into a particular route / access specific data in their collection / API :
+→ GET /artworks/search
 
 • Full request URL:
 → https://api.artic.edu/api/v1/artworks/search
@@ -274,3 +277,68 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+✅ Practice Section (Make API's Calls)
+
+import request
+
+def main():
+
+    print("Search the Art Institute of Chicago")
+    artist = input("Artist: ")
+    try:
+        response = request.get("https://api.artic.edu/api/v1/artworks/search",
+        {"q": "artist"}
+        )
+        response.raise_for_status()
+    except request.HTTPError:               # Bila request, and kalau request leads to HTTP Error --> Terus Exception.
+        print("Couldn't complete request")
+        return
+
+
+    content = response.json()
+    for artwork in content["data"]:
+        print(f"* {artwork['title']}")
+
+
+main()
+
+
+
+
+IMPORTANT :
+• data is a list of artworks.
+• Each artwork is a dictionary (key–value pairs). So it has multiple key-value pairsfrom that dictionary.
+• Those keys cover fields like title, artist_title, date_display, etc., depending on what the API includes.
+• In this API response, each artwork dict pairs a key with its corresponding value. Example: for the key title, the value might be "Water Lilies". Other keys (like artist_title, date_display, etc.) have their own values (e.g., "Claude Monet", "1906"). So “value” just means the data stored for that key.
+
+
+artwork = {
+    "title": "Water Lilies",
+    "artist_title": "Claude Monet",
+    "date_display": "1906"
+}
+
+data = [
+    {
+        "title": "Water Lilies",
+        "artist_title": "Claude Monet",
+        "date_display": "1906"
+    },
+    {
+        "title": "The Starry Night",
+        "artist_title": "Vincent van Gogh",
+        "date_display": "1889"
+    },
+    {
+        "title": "Girl with a Pearl Earring",
+        "artist_title": "Johannes Vermeer",
+        "date_display": "c. 1665"
+    }
+]
+
+
+
+
+

@@ -134,7 +134,7 @@ def test_argument():
 • edX
 
 
-🗂 9. Organizing Tests into Folders
+🗂 9. Organizing Tests into Folders (Good for testing)
 
 • If you have multiple test files, you can place them in a folder:
 

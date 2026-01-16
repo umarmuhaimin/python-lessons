@@ -75,13 +75,14 @@
 9. Example: Formatting with black
 
 ❌ Before (poor style)
-python 🐍
+```python
 students={"Harry":"Gryffindor","Hermione":"Gryffindor","Ron":"Gryffindor","Padma":"Ravenclaw"}
 for student in students:
  print(student)
+```
 
 ✅ After running black students.py
-python 🐍
+```python
 students = {
     "Harry": "Gryffindor",
     "Hermione": "Gryffindor",
@@ -91,6 +92,7 @@ students = {
 
 for student in students:
     print(student)
+```
 
 • Fixes: clean indentation, one pair per line, trailing comma, readable layout.
 

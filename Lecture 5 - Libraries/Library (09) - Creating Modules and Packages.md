@@ -13,7 +13,7 @@
 
 👉 search.py (original: function inside same file)
 
-python 🐍
+```python
 import requests
 
 
@@ -35,6 +35,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 • Works, but get_artworks() is stuck in this file only.
 
@@ -45,7 +46,7 @@ if __name__ == "__main__":
 
 👉 artwork.py (module)
 
-python 🐍
+```python
 import requests
 
 
@@ -55,12 +56,13 @@ def get_artworks(query, limit):
     response.raise_for_status()
     content = response.json()
     return content["data"]
+```
 
 • Update search.py to import from the module.
 
 👉 search.py (using the module)
 
-python 🐍
+```python
 from artwork import get_artworks
 
 
@@ -74,6 +76,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 • Now get_artworks() is reusable in other files.
 
@@ -84,7 +87,7 @@ if __name__ == "__main__":
 
 👉 artists.py
 
-python 🐍
+```python
 import requests
 
 
@@ -94,12 +97,13 @@ def get_artists(query, limit):
     response.raise_for_status()
     content = response.json()
     return content["data"]
+```
 
 • Update search.py to use both modules.
 
 👉 search.py (artworks + artists)
 
-python 🐍
+```python
 from artwork import get_artworks
 from artists import get_artists
 
@@ -120,13 +124,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 
 4. Alternative Import Style (and why it can fail)
 
 👉 Using import module
 
-python 🐍
+```python
 import artists
 import artwork
 
@@ -137,14 +142,16 @@ def main():
 
     for r in results:
         print(r["title"])
+```
 
 
 ⚠️ Watch out: if you name a variable artists, you shadow the module.
 
 Example (bad):
 
-python 🐍
+```python
 artists = input("Search artists: ")   # now artists is a string, not the module
+```
 
 
 5. Creating a Package (group modules into a folder)
@@ -165,7 +172,7 @@ museum/
 
 👉 search.py (import from package)
 
-python 🐍
+```python
 from museum.artwork import get_artworks
 from museum.artists import get_artists
 
@@ -186,6 +193,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 • Now modules are neatly organized under one umbrella package: museum.
 

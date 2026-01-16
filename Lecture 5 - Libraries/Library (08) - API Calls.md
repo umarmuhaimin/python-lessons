@@ -26,7 +26,10 @@
 
 • Create a Python file (e.g., api.py).
 • Import the requests library to send HTTP requests.
-→ import requests
+
+```python
+import requests
+```
 
 • Create a main() function and call it.
 
@@ -44,9 +47,10 @@
 → https://api.artic.edu/api/v1/artworks/search
 
 👉 Example:
-python 🐍
+```python
 response = requests.get("https://api.artic.edu/api/v1/artworks/search")
 print(response)
+```
 
 
 5. Understanding the Response
@@ -74,9 +78,10 @@ print(response)
 
 • response.json() converts JSON into a Python dictionary.
 
-python 🐍
+```python
 content = response.json()
 print(content)
+```
 
 • Python dictionaries and JSON look very similar, making them easy to work with.
 
@@ -94,9 +99,10 @@ print(content)
 
 • Since data is a list, use a loop.
 
-python 🐍
+```python
 for artwork in content["data"]:
     print(artwork["title"])
+```
 
 • This prints the title of each artwork returned.
 
@@ -118,13 +124,14 @@ for artwork in content["data"]:
 • Internet requests can fail (no internet, server issues).
 • Use exception handling to avoid crashes.
 
-python 🐍 
+```python
 try:
     response = requests.get(url)
     response.raise_for_status()
 except requests.HTTPError:
     print("Couldn't complete request")
     return
+```
 
 • response.raise_for_status():
   → Raises an error if the request failed.
@@ -139,11 +146,12 @@ except requests.HTTPError:
 
 👉 Example:
 
-python 🐍
+```python
 requests.get(
     url,
     params={"q": "Monet"}
 )
+```
 
 • This searches artworks related to Monet.
 
@@ -152,13 +160,14 @@ requests.get(
 
 • Let users control the search query.
 
-python 🐍
+```python
 artist = input("Search the Art Institute of Chicago: ")
 
 response = requests.get(
     url,
     params={"q": artist}
 )
+```
 
 
 • Now the user can search for:
@@ -204,7 +213,7 @@ response = requests.get(
 
 ✅ Full Code (CS50 Shorts Version) — api.py
 
-python 🐍
+```python
 import requests
 
 
@@ -237,6 +246,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 
 🔹 Key Notes (How it works)
@@ -253,7 +263,7 @@ if __name__ == "__main__":
 
 Use this if the JSON looks messy and you want to inspect the structure.
 
-python 🐍
+```python
 import requests
 import json
 
@@ -277,10 +287,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 
 ✅ Practice Section (Make API's Calls)
 
+```python
 import request
 
 def main():
@@ -303,7 +315,7 @@ def main():
 
 
 main()
-
+```
 
 
 
@@ -337,8 +349,6 @@ data = [
         "date_display": "c. 1665"
     }
 ]
-
-
 
 
 

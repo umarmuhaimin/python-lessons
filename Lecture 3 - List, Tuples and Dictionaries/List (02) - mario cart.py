@@ -1,3 +1,5 @@
+# 🔹 Example (1):
+
 results = ["Mario", "Luigi"]
 results.append("Princess")
 results.append("Yoshi")
@@ -14,6 +16,7 @@ print(results)
 # → ['Mario', 'Luigi', 'Princess', 'Yoshi', 'Koopa Troopa', 'Toad', 'Bowser', 'Donkey Kong Jr.']
 
 ###################################################################################################################################
+# 🔹 Example (2):
 
 results = ["Mario", "Luigi", "Princess", "Yoshi", "Koopa Troopa", "Toad", "Bowser", "Donkey Kong Jr."]
 results.remove("Bowser") # To remove Bowser from the list.
@@ -23,6 +26,7 @@ print(results)
 # → ['Bowser', 'Mario', 'Luigi', 'Princess', 'Yoshi', 'Koopa Troopa', 'Toad', 'Donkey Kong Jr.']
 
 ###################################################################################################################################
+# 🔹 Example (3):
 
 results = ["Mario", "Luigi", "Princess", "Yoshi", "Koopa Troopa", "Toad", "Bowser", "Donkey Kong Jr."]
 results.reverse() # To reverse the order / arrangement of the list.

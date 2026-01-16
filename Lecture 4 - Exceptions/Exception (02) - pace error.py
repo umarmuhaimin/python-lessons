@@ -1,5 +1,7 @@
 # 🔹 Error : Calculating pace for a marathon in minutes per mile. In the case of minutes ≤ 0. We can solve the problem by raising an Exception handlings.
 
+# ❌ Wrong Solution :
+
 def main():
     pace = get_pace(miles=26.2, minutes=0)
     print(f"You need to run each mile in{round(pace, 2)} minutes.")
@@ -14,7 +16,7 @@ main()
 
 ####################################################################################################################################################
 
-# 👉 Solution (1) :
+# ✅ Correct Solution (1):
 
 def main():
     pace = get_pace(miles=26.2, minutes=0)
@@ -33,7 +35,7 @@ main()
 
 ##################################################################################################
 
-# 👉 Solution (2) :
+# ✅ Correct Solution (2):
 
 def main():
     pace = get_pace(miles=26.2, minutes=0)
@@ -52,7 +54,7 @@ main()
 
 ##################################################################################################
 
-# 👉 Solution (3) :
+# ✅ Correct Solution (3):
 
 def main():
     pace = get_pace(miles=26.2, minutes=0)

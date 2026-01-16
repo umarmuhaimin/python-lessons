@@ -1,4 +1,5 @@
 # 🔹 Method (1) of sending letters : 
+
 def main():
     print(write_letter("Mario", "Princess Peach"))
     print(write_letter("Luigi", "Princess Peach"))
@@ -19,6 +20,8 @@ def write_letter(receiver, sender):
     """
 
 main()
+
+#################################################################
 
 # 🔹 Method (2) of sending letters :
 

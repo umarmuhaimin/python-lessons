@@ -1,8 +1,11 @@
 # 🔹 Error 1 : Printing pyramid with height of n. In the case of height = 3.
+
 # 👉 Actual Answer :
 # → #    [0]
 # → ##   [1]
 # → ###  [2]
+
+# ❌ Wrong Solution :
 
 def main():
     height = int(input("Height: "))
@@ -19,7 +22,8 @@ main()
 # → #   [1]
 # → ##  [2]
 
-# 👉 Solution : 
+# ✅ Correct Solution : 
+
 def main():
     height = int(input("Height: "))
     pyramid(height)

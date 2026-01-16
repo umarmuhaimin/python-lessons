@@ -1,5 +1,7 @@
 # 🔹 Error :
 
+# ❌ Wrong Solution :
+
 distances = { 
     "Voyager 1": "163",
     "Voyager 2": "136",
@@ -21,7 +23,7 @@ main()
 # Output : 
 # → Error : TypeError: can't multiply sequence by non-int of type 'str'
 
-# 👉 Solution : 
+# ✅ Correct Solution : 
 
 distances = { 
     "Voyager 1": "163",

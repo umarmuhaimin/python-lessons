@@ -6,7 +6,6 @@
 
 • Before using testing tools, students typically test manually (e.g., print outputs).
 • Manual testing is slow, inconsistent, error-prone, and doesn’t scale. 
-• edX
 
 
 ✅ 2. What Are Unit Tests?
@@ -14,7 +13,6 @@
 • A unit test is a small piece of code that checks one unit of our code (usually a function).
 • It verifies that your function behaves as expected for specific inputs.
 • Helps catch bugs early and makes refactoring safe. 
-• edX
 
 
 ✅ 3. Using assert
@@ -23,11 +21,11 @@
 • If the condition is true, nothing happens. If false, an AssertionError is raised.
 • Example:
 
-python 🐍
+```python
 assert square(2) == 4
+```
 
 • If the test fails, you’ll see an AssertionError. 
-• edX
 
 
 ⭐ 4. Introducing pytest
@@ -36,7 +34,9 @@ assert square(2) == 4
 • YouTube
 • Install it using:
 
+```
 pip install pytest
+```
 
 • pytest automatically discovers test files and test functions:
    → File name must start with test_
@@ -65,14 +65,13 @@ def test_square():
 pytest test_calculator.py
 
 • py.test will report pass/fail and show details on failure. 
-• edX
 
 
 🔸 6. Splitting Test Cases
 
 • Better practice is to separate tests into multiple functions:
 
-python 🐍
+```python
 def test_square_2():
     assert square(2) == 4
 
@@ -83,26 +82,26 @@ def test_square_3():
 
 def test_square_negative():
     assert square(-1) == 1
+```
 
 • pytest executes each test independently.
 • If one fails, others still run. 
-• edX
 
 
 🧠 7. Testing for Errors / Exceptions
 
 • When your code should raise an error, use pytest.raises:
 
-python 🐍
+```python
 import pytest
 
 
 def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         divide(1, 0)
+```
 
 • This checks that divide() raises the right exception. 
-• edX
 
 
 🔹 8. Testing Functions That Return Values
@@ -110,28 +109,30 @@ def test_zero_division():
 • If a function prints output instead of returning it, pytest cannot easily test it.
 • Example (not testable):
 
-python 🐍
+```python
 def hello(name):
     print("hello,", name)
+```
 
 • Better style (testable):
 
-python 🐍
+```python
 def hello(name):
     return f"hello, {name}"
+```
 
 • Now tests for both default and argument forms:
 
-python 🐍
+```python
 def test_default():
     assert hello() == "hello, world"
 
 
 def test_argument():
     assert hello("David") == "hello, David"
+```
 
 • By using return instead of print, functions become testable. 
-• edX
 
 
 🗂 9. Organizing Tests into Folders (Good for testing)
@@ -171,26 +172,27 @@ pytest test
 • Best practice:
    → Break code into functions that return values
    → Have a separate main program that handles printing/user I/O 
-• edX
 
 
 🧮 12. Example: Testing Strings (Hello)
 
 • Before change (not testable):
 
-python 🐍
+```python
 def hello(to="world"):
     print("hello,", to)
+```
 
 • After change:
 
-python 🐍
+```python
 def hello(to="world"):
     return f"hello, {to}"
+```
 
 • test_hello.py:
 
-python 🐍
+```python
 from hello import hello
 
 
@@ -200,9 +202,9 @@ def test_default():
 
 def test_argument():
     assert hello("David") == "hello, David"
+```
 
 • Splitting tests into multiple functions makes failures clearer. 
-• edX
 
 
 ✅ 13. Good Test Practices
@@ -212,7 +214,6 @@ def test_argument():
 ✔ Use descriptive test function names
 ✔ Test edge cases (e.g., zero, empty string, negative values)
 ✔ Prefer functions that return values (so tests can check results) 
-✔ edX
 
 
 📊 14. Why Unit Testing Matters (Summary)
@@ -247,7 +248,6 @@ pytest test/
 • Example:
    → Function prints output → can’t be tested directly.
    → Function returns a string → testable. 
-• edX
 
 
 🧠 17. Conclusion / Recap

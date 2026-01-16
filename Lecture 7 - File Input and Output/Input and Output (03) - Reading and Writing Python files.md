@@ -32,9 +32,10 @@
 
 • Basic Syntax
 
-python 🐍
+```python
 with open("Alice.txt", "r") as f:
     ...
+```
 
 • Key ideas:
    → "Alice.txt" → file name
@@ -54,10 +55,11 @@ with open("Alice.txt", "r") as f:
 
 5. Reading an Entire File (read)
 
-python 🐍
+```python
 with open("Alice.txt", "r") as f:
     contents = f.read()
     print(contents)
+```
 
 • What happens:
    → Reads entire file at once
@@ -67,9 +69,10 @@ with open("Alice.txt", "r") as f:
 
 6. Reading Line by Line (readlines)
 
-python 🐍
+```python
 with open("Alice.txt", "r") as f:
     contents = f.readlines()
+```
 
 • What readlines() returns:
    → A list of strings
@@ -93,8 +96,9 @@ with open("Alice.txt", "r") as f:
 
 8. Extracting Chapter 1 Using List Slicing
 
-python 🐍
+```python
 chapter1 = contents[52:272]
+```
 
 • Explanation:
    → 52 → start of Chapter 1
@@ -106,9 +110,10 @@ chapter1 = contents[52:272]
 
 • To create a new file:
 
-python 🐍
+```python
 with open("chapter1.txt", "w") as f:
     ...
+```
 
 • Key points:
    → "w" → write mode
@@ -118,9 +123,10 @@ with open("chapter1.txt", "w") as f:
 
 10. Writing a Single String (write)
 
-python 🐍
+```python
 with open("chapter1.txt", "w") as f:
     f.write("Chapter 1")
+```
 
 • write() writes one string; does not automatically add a newline
 
@@ -129,9 +135,10 @@ with open("chapter1.txt", "w") as f:
 
 • Since chapter1 is a list of strings, we use:
 
-python 🐍
+```python
 with open("chapter1.txt", "w") as f:
     f.writelines(chapter1)
+```
 
 • What this does:
    → Writes each string in the list
@@ -141,7 +148,7 @@ with open("chapter1.txt", "w") as f:
 
 12. Full Example Program (book.py)
 
-python 🐍
+```python
 with open("Alice.txt", "r") as f:
     contents = f.readlines()
 
@@ -149,6 +156,7 @@ chapter1 = contents[52:272]
 
 with open("chapter1.txt", "w") as f:
     f.writelines(chapter1)
+```
 
 
 13. Why with Is Important
@@ -164,16 +172,18 @@ with open("chapter1.txt", "w") as f:
 
 • This is safe:
 
-python 🐍
+```python
 with open("file.txt") as f:
     ...
+```
 
 • This is riskier:
 
-python 🐍
+```python
 f = open("file.txt")
 ...
 f.close()
+```
 
 • Reason: with guarantees cleanup even if errors occur
 

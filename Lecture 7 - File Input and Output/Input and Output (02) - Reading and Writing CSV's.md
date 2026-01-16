@@ -50,8 +50,9 @@
 
 5. Importing the CSV Library
 
-python 🐍
+```python
 import csv
+```
 
 • Python’s built-in CSV module
 • Supports:
@@ -63,9 +64,10 @@ import csv
 
 • Opening the File (Read Mode)
 
-python 🐍
+```python
 with open("views.csv", "r") as file:
     reader = csv.DictReader(file)
+```
 
 • Key ideas:
    → with automatically closes the file
@@ -75,9 +77,10 @@ with open("views.csv", "r") as file:
 
 7. Iterating Through Rows
 
-python 🐍
+```python
 for row in reader:
     print(row)
+```
 
 • Example output:
 
@@ -94,9 +97,10 @@ for row in reader:
 
 8. Accessing Individual Columns
 
-python 🐍
+```python
 for row in reader:
     print(row["id"])
+```
 
 • Access values using header names:
    → row["id"]
@@ -105,9 +109,10 @@ for row in reader:
 
 9. Calculating Brightness for Each Row
 
-python 🐍
+```python
 brightness = calculate_brightness(f"{row['id']}.jpeg")
 print(brightness)
+```
 
 • Explanation:
    → row["id"] → "1"
@@ -130,8 +135,9 @@ brightness = calculate_brightness(...)
 
 11. Rounding Brightness Values
 
-python 🐍
+```python
 brightness = round(brightness, 2)
+```
 
 • Improves readability; example: 0.734928 → 0.73
 
@@ -142,21 +148,23 @@ brightness = round(brightness, 2)
 
 • Opening Two Files at Once
 
-python 🐍
+```python
 with open("views.csv", "r") as views, open("analysis.csv", "w") as analysis:
     ...
+```
 
 • views → read source CSV; analysis → write destination CSV
 
 
 13. Creating a CSV DictWriter
 
-python 🐍
+```python
 reader = csv.DictReader(views)
 writer = csv.DictWriter(
     analysis,
     fieldnames=reader.fieldnames + ["brightness"]
 )
+```
 
 • Explanation:
    → reader.fieldnames = ["id", "English title", "Japanese title"]
@@ -165,15 +173,16 @@ writer = csv.DictWriter(
 
 14. Writing the Header Row
 
-python 🐍
+```python
 writer.writeheader()
+```
 
 • Creates: id,English title,Japanese title,brightness
 
 
 15. Writing Rows (Explicit Method)
 
-python 🐍
+```python
 for row in reader:
     brightness = round(calculate_brightness(f"{row['id']}.jpeg"), 2)
 
@@ -183,6 +192,7 @@ for row in reader:
         "Japanese title": row["Japanese title"],
         "brightness": brightness
     })
+```
 
 • Works, but repetitive.
 
@@ -191,12 +201,13 @@ for row in reader:
 
 • Cleaner approach:
 
-python 🐍
+```python
 for row in reader:
     row["brightness"] = round(
         calculate_brightness(f"{row['id']}.jpeg"), 2
     )
     writer.writerow(row)
+```
 
 • Why better:
    → Avoids rewriting the same keys
@@ -207,7 +218,7 @@ for row in reader:
 
 17. Final Complete Program (views.py)
 
-python 🐍
+```python
 import csv
 from brightness import calculate_brightness  # assumed import
 from brightness import calculate_brightness  # assumed import
@@ -226,6 +237,7 @@ with open("views.csv", "r") as views, open("analysis.csv", "w") as analysis:
             calculate_brightness(f"{row['id']}.jpeg"), 2
         )
         writer.writerow(row)
+```
 
 
 18. Validating Results

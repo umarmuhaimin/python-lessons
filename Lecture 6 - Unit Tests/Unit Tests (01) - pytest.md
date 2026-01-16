@@ -19,19 +19,21 @@
 • 1 AU ≈ 149,597,870,700 meters.
 
 👉 convert.py (from the lecture)
-python 🐍
+```python
 def convert(au):
     if not isinstance(au, (int, float)):
         raise TypeError("au must be an int or float")
     return au * 149597870700
+```
 
 
 3. Why Manual Testing Is Not Enough
 
 • Manual testing example:
 
-python 🐍
+```
 python convert.py
+```
 
 • Enter values like 1; visually check output; repeat for different values.
 
@@ -56,7 +58,7 @@ python convert.py
 5. Creating the Test File
 
 👉 test_convert.py
-python 🐍
+```python
 import pytest
 from convert import convert
 
@@ -68,7 +70,6 @@ from convert import convert
 6. First Unit Test: Integer Conversion
 
 • Testing 1 AU
-python 🐍
 def test_conversion():
     assert convert(1) == 149597870700
 
@@ -91,10 +92,11 @@ pytest
 
 8. Adding More Assertions (Still One Test Function)
 
-python 🐍
+```python
 def test_conversion():
     assert convert(1) == 149597870700
     assert convert(50) == 7479893535000
+```
 
 • Important:
    → pytest counts test functions, not assertions
@@ -106,10 +108,11 @@ def test_conversion():
 • Why? convert() raises a TypeError if input is invalid; we must test that behavior too.
 
 👉 Testing TypeError with pytest.raises
-python 🐍
+```python
 def test_error():
     with pytest.raises(TypeError):
         convert("1")
+```
 
 • Explanation:
    → pytest.raises(TypeError) expects a TypeError
@@ -122,27 +125,30 @@ def test_error():
 • Problem: floating-point precision; floats cannot always be represented exactly; comparing floats directly is unreliable.
 
 👉 Example Float Test (Without Tolerance)
-python 🐍
+```python
 def test_float_conversion():
     assert convert(0.001) == 149597870.691
+```
 
 • ⚠️ This may fail due to precision issues.
 
 
 11. Using pytest.approx (Correct Approach)
 
-python 🐍
+```python
 def test_float_conversion():
     assert convert(0.001) == pytest.approx(149597870.691)
+```
 
 • pytest.approx() allows small differences; uses sensible default tolerance.
 
 
 12. Custom Tolerance with abs
 
-python 🐍
+```python
 def test_float_conversion():
     assert convert(0.001) == pytest.approx(149597870.691, abs=0.1)
+```
 
 • Meaning: accepts values within ±0.1; useful when exact precision is not required.
 
@@ -171,7 +177,7 @@ pytest.approx(149597870.691, abs=1e-2)
 
 15. Final test_convert.py (Lecture-Complete)
 
-python 🐍
+```python
 import pytest
 from convert import convert
 
@@ -188,6 +194,7 @@ def test_error():
 
 def test_float_conversion():
     assert convert(0.001) == pytest.approx(149597870.691, abs=1e-2)
+```
 
 
 16. Features of pytest Demonstrated

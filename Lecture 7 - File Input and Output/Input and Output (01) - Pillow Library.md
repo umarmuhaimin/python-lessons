@@ -28,13 +28,14 @@
 
 • Start with a standard Python structure: define main(); call main() at the bottom.
 
-python 🐍
+```python
 def main():
     pass
 
 
 if __name__ == "__main__":
     main()
+```
 
 
 4. Importing Pillow
@@ -42,8 +43,9 @@ if __name__ == "__main__":
 • Pillow is accessed through the PIL module.
 • We specifically need the Image class.
 
-python 🐍
+```python
 from PIL import Image
+```
 
 • Explanation: Image is a class representing an image; it provides methods to open, manipulate, and save images.
 
@@ -52,16 +54,18 @@ from PIL import Image
 
 • Use Image.open() to load an image file; this returns an image object.
 
-python 🐍
+```python
 img = Image.open("in.jpeg")
+```
 
 • Similar to clicking and opening an image manually. Once opened, Python can manipulate the image.
 
 
 6. Closing an Image (Manual Way)
 
-python 🐍
+```python
 img.close()
+```
 
 • Good practice to close files and images when done; problem: easy to forget to close images.
 
@@ -70,9 +74,10 @@ img.close()
 
 • Automatically opens and closes the image.
 
-python 🐍
+```python
 with Image.open("in.jpeg") as img:
     pass
+```
 
 • Explanation:
    → While inside the with block: the image is open; you can manipulate it.
@@ -83,18 +88,20 @@ with Image.open("in.jpeg") as img:
 
 • Getting Image Size
 
-python 🐍
+```python
 with Image.open("in.jpeg") as img:
     print(img.size)
+```
 
 • Output example: (1052, 720)
    → Meaning: 1052 pixels wide; 720 pixels tall.
 
 • Getting Image Format
 
-python 🐍
+```python
 with Image.open("in.jpeg") as img:
     print(img.format)
+```
 
 • Output: JPEG; confirms the file type.
 
@@ -103,10 +110,11 @@ with Image.open("in.jpeg") as img:
 
 • The image is upside down; rotate it 180 degrees.
 
-python 🐍
+```python
 with Image.open("in.jpeg") as img:
     img = img.rotate(180)
     img.save("out.jpeg")
+```
 
 • Explanation:
    → rotate(180) flips the image
@@ -125,13 +133,14 @@ with Image.open("in.jpeg") as img:
 • Pillow supports filters via ImageFilter.
 • Import ImageFilter:
 
-python 🐍
+```python
 from PIL import Image, ImageFilter
+```
 
 
 12. Blur Filter Example
 
-python 🐍
+```python
 from PIL import Image, ImageFilter
 
 
@@ -144,6 +153,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 • Explanation:
    → ImageFilter.BLUR applies a blur effect
@@ -154,7 +164,7 @@ if __name__ == "__main__":
 
 • Another available filter: FIND_EDGES; highlights edges in the image.
 
-python 🐍
+```python
 from PIL import Image, ImageFilter
 
 
@@ -167,6 +177,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
 
 • Result:
    → The image is rotated

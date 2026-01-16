@@ -10,40 +10,43 @@
 
 2) Starting example (input → output)
 
-python 🐍
+```python
 name = input("What's your name?" )
 print(f"hello, {name}")
-
+```
 
 
 3) Collect multiple inputs in a list (but still only in memory)
 
-python 🐍
+```python
 names = []
 
 for _ in range(3):
     name = input("What's your name?" )
     names.append(name)
+```
 
 
 • Simplified:
 
-python 🐍
+```python
 names = []
 
 for _ in range(3):
     names.append(input("What's your name?" ))
+```
 
 
 • Print sorted:
 
-python 🐍
+```python
 names = []
 for _ in range(3):
     names.append(input("What's your name?" ))
 
 for name in sorted(names):
     print(f"hello, {name}")
+```
 
 • But after the program ends, the list is still lost → that’s why we use files. 
 
@@ -52,42 +55,46 @@ for name in sorted(names):
 
 • Write mode "w" (overwrites file each run)
 
-python 🐍
+```python
 name = input("What's your name? ")
 
 file = open("names.txt", "w")
 file.write(name)
 file.close()
+```
 
 
 • Append mode "a" (adds to the end)
 
-python 🐍
+```python
 name = input("What's your name? ")
 file = open("names.txt", "a")
 file.write(name)
 file.close()
+```
 
 • Problem: names run together (no new line). 
 
 • Fix with newline:
 
-python 🐍
+```python
 name = input("What's your name? ")
 
 file = open("names.txt", "a")
 file.write(f"{name}\n")
 file.close()
+```
 
 
 
 5) with (auto-closes the file)
 
-python 🐍
+```python
 name = input("What's your name? ")
 
 with open("names.txt", "a") as file:
     file.write(f"{name}\n")
+```
 
 • Key idea: with handles closing for you. 
 
@@ -96,36 +103,39 @@ with open("names.txt", "a") as file:
 
 • Read all lines into a list
 
-python 🐍
+```python
 with open("names.txt", "r") as file:
     lines = file.readlines()
 
 for line in lines:
     print("hello,", line)
+```
 
 • Output looks messy because each line already has \n. 
 
 • Fix using rstrip():
 
-python 🐍
+```python
 with open("names.txt", "r") as file:
     lines = file.readlines()
 
 for line in lines:
     print("hello,", line.rstrip())
+```
 
 
 • Simplest pattern: loop directly over the file
 
-python 🐍
+```python
 with open("names.txt", "r") as file:
     for line in file:
         print("hello,", line.rstrip())
+```
 
 
 • Read → store → sort → print:
 
-python 🐍
+```python
 names = []
 
 with open("names.txt") as file:
@@ -134,6 +144,7 @@ with open("names.txt") as file:
 
 for name in sorted(names):
     print(f"hello, {name}")
+```
 
 
 
@@ -149,25 +160,27 @@ Draco,Slytherin
 
 • Read CSV by splitting strings
 
-python 🐍
+```python
 with open("students.csv") as file:
     for line in file:
         row = line.rstrip().split(",")
         print(f"{row[0]} is in {row[1]}")
+```
 
 
 • Cleaner: unpack into variables
 
-python 🐍
+```python
 with open("students.csv") as file:
     for line in file:
         name, house = line.rstrip().split(",")
         print(f"{name} is in {house}")
+```
 
 
 • Sort as strings
 
-python 🐍
+```python
 students = []
 with open("students.csv") as file:
     for line in file:
@@ -176,11 +189,12 @@ with open("students.csv") as file:
 
 for student in sorted(students):
     print(student)
+```
 
 
 • Store as dictionaries (better structure)
 
-python 🐍
+```python
 students = []
 
 with open("students.csv") as file:
@@ -193,11 +207,12 @@ with open("students.csv") as file:
 
 for student in students:
     print(f"{student['name']} is in {student['house']}")
+```
 
 
 • Sort list of dictionaries using key=...
 
-python 🐍
+```python
 students = []
 
 with open("students.csv") as file:
@@ -210,11 +225,12 @@ def get_name(student):
 
 for student in sorted(students, key=get_name):
     print(f"{student['name']} is in {student['house']}")
+```
 
 
 • Using lambda (one-off function):
 
-python 🐍
+```python
 students = []
 
 with open("students.csv") as file:
@@ -223,6 +239,7 @@ with open("students.csv") as file:
         students.append({"name": name, "house": house})
 for student in sorted(students, key=lambda student: student["name"]):
     print(f"{student['name']} is in {student['house']}")
+```
 
 
 
@@ -238,7 +255,7 @@ Then .split(",") breaks (too many commas).
 
 • Use csv.reader:
 
-python 🐍
+```python
 import csv
 
 students = []
@@ -250,6 +267,7 @@ with open("students.csv") as file:
 
 for student in sorted(students, key=lambda student: student["name"]):
     print(f"{student['name']} is from {student['home']}")
+```
 
 
 • Even better: add headers to the CSV:
@@ -262,7 +280,7 @@ Draco,Malfoy Manor
 
 • Use csv.DictReader:
 
-python 🐍
+```python
 import csv
 
 students = []
@@ -274,12 +292,13 @@ with open("students.csv") as file:
 
 for student in sorted(students, key=lambda student: student["name"]):
     print(f"{student['name']} is in {student['home']}")
+```
 
 
 
 9) Writing to CSV (DictWriter)
 
-python 🐍
+```python
 import csv
 
 name = input("What's your name? ")
@@ -287,6 +306,7 @@ home = input("Where's your home? ")
 with open("students.csv", "a") as file:
     writer = csv.DictWriter(file, fieldnames=["name", "home"])
     writer.writerow({"name": name, "home": home})
+```
 
 • +1
 
@@ -298,7 +318,7 @@ with open("students.csv", "a") as file:
 
 • costumes.py:
 
-python 🐍
+```python
 import sys
 
 from PIL import Image
@@ -312,11 +332,13 @@ for arg in sys.argv[1:]:
 images[0].save(
     "costumes.gif", save_all=True, append_images=[images[1]], duration=200, loop=0
 )
+```
 
 • Run:
 
-python 🐍
+```python
 python costumes.py costume1.gif costume2.gif
+```
 
 • Then you can view the output GIF (in CS50’s environment they use code costumes.gif). 
 
